@@ -185,4 +185,20 @@
         <mu2 value="0.001"/>
     </gazebo>
 
+    <joint name="imu_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="imu_link"/>
+        <origin xyz="-40 83 530" rpy="0 0 0"/>
+    </joint>
+
+    <link name="imu_link"/>
+
+    <joint name="gps_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="gps_link"/>
+        <origin xyz="40 0 320" rpy="0 0 0"/>
+    </joint>    
+
+    <link name="gps_link"/>
+
 </robot>
