@@ -30,13 +30,13 @@
     <xacro:property name="main_box_offset_x" value="0.028"/>
     <xacro:property name="main_box_offset_z" value="${chassis_height}"/>
     <xacro:property name="main_box_length" value="0.292"/>
-    <xacro:property name="main_box_heigth" value="0.099"/>
+    <xacro:property name="main_box_height" value="0.099"/>
     <xacro:property name="main_box_width" value="0.20"/>
 
     <xacro:property name="gps_box_offset_x" value="0.190"/>
-    <xacro:property name="gps_box_offset_z" value="${chassis_height} + ${main_box_heigth}"/>
+    <xacro:property name="gps_box_offset_z" value="${chassis_height} + ${main_box_height}"/>
     <xacro:property name="gps_box_length" value="0.140"/>
-    <xacro:property name="gps_box_heigth" value="0.193"/>
+    <xacro:property name="gps_box_height" value="0.193"/>
     <xacro:property name="gps_box_width" value="0.196"/>
 
     <xacro:property name="imu_cylinder_offset_x" value="${chassis_length} - 0.022"/>
