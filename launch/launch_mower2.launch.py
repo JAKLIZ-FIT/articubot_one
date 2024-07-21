@@ -85,6 +85,32 @@ def generate_launch_description():
         )
     )
 
+    imu_node = Node(
+        package="my_imu",
+        executable="imu_from_serial",
+        name="imu_node",
+        output='screen',
+        parameters=[{'verbose':False}]
+    )
+
+    delayed_imu_node_spawner = RegisterEventHandler(
+        event_handler=OnProcessStart(
+            target_action=joint_broad_spawner,
+            on_start=[imu_node],
+        )
+    )
+
+    gps_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory("ublox_gps"),'launch','ublox_gps_node-launch.py'
+        )])#, launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
+    )
+
+    robot_loc = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory("nav2_gps_waypoint_follower_demo"),'launch','dual_ekf_navsat.launch.py'
+        )])#, launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
+    )
 
     # Code for delaying a node (I haven't tested how effective it is)
     # 
@@ -111,5 +137,8 @@ def generate_launch_description():
         twist_mux,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
-        delayed_joint_broad_spawner
+        delayed_joint_broad_spawner,
+        delayed_imu_node_spawner,
+        gps_node,
+        robot_loc
     ])
