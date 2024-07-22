@@ -250,7 +250,15 @@
         <origin xyz="0.040 -0.083 0.530" rpy="0 0 0"/>
     </joint>
 
-    <link name="imu_link"/>
+    <link name="imu_link">
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.02 0.02 0.005"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
 
     <joint name="imu_cyl_joint" type="fixed">
         <parent link="chassis"/>
@@ -279,7 +287,15 @@
         <origin xyz="-0.040 0 0.320" rpy="0 0 0"/>
     </joint>    
 
-    <link name="gps_link"/>
+    <link name="gps_link">
+        <visual>
+            <origin xyz="0 0 0.005"/>
+            <geometry>
+                <box size="0.04 0.04 0.01"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+    </link>
 
     <joint name="gps_box_joint" type="fixed">
         <parent link="chassis"/>
