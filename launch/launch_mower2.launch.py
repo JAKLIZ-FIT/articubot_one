@@ -112,6 +112,14 @@ def generate_launch_description():
         )])#, launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
     )
 
+    # range_node = Node(
+    #     package=package_name,
+    #     executable="ultrasonic_serial_node",
+    #     name="range_node",
+    #     output='screen',
+    #     parameters=[{'verbose',False}]
+    # )
+
     # Code for delaying a node (I haven't tested how effective it is)
     # 
     # First add the below lines to imports
